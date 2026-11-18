@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our crawler: IndexLeadBot</title>
+<meta name="description" content="What IndexLeadBot is, what it reads, and how to stop it.">
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2.5rem auto;padding:0 1rem;color:#1b2b28}h1{font-size:1.9rem}h2{margin-top:2rem;font-size:1.15rem}code,pre{background:#f1f5f4;border-radius:6px}code{padding:.1rem .3rem}pre{padding:.75rem;overflow-x:auto}a{color:#1f6f60}</style>
+</head>
+<body>
+<h1>Our crawler: IndexLeadBot</h1>
+<p>If you found <code>IndexLeadBot</code> in your server logs, this page explains who we are, what it does and how to stop it.</p>
+
+<h2>Who runs it</h2>
+<p>Fabrice Thenor Louis runs IndexLead, a service that helps businesses find other businesses to contact. You can reach us at <a href="mailto:indexlead.crawler@outlook.com">indexlead.crawler@outlook.com</a>.</p>
+
+<h2>What it does</h2>
+<p>For UK limited companies listed on the public Companies House register, it looks for the company's own website and reads a few public pages: the home page and, if they exist, the contact, about, terms and privacy pages. It does two things with them:</p>
+<ul>
+<li>It checks that the site really belongs to the company, by looking for the company's registered number (UK companies must show it on their website).</li>
+<li>It notes business email addresses on your own domain that the site publishes (such as <code>info@</code> or a named address).</li>
+</ul>
+<p>It does not log in, fill in forms, read pages that need a password, or follow links to other websites.</p>
+
+<h2>How it behaves</h2>
+<ul>
+<li>It identifies itself: <code>IndexLeadBot/1.0 (+this page; a contact address)</code>.</li>
+<li>It reads your <code>robots.txt</code> first and obeys it. If it cannot read that file, it does not crawl the site.</li>
+<li>It makes at most one request to a site every two seconds, and reads only a handful of pages per company.</li>
+<li>It connects only to public internet addresses and reads at most half a megabyte per page.</li>
+</ul>
+
+<h2>How to stop it</h2>
+<p>Add this to your <code>robots.txt</code> and it will not visit your site again:</p>
+<pre>User-agent: IndexLeadBot
+Disallow: /</pre>
+<p>To have what we already hold removed, write to <a href="mailto:indexlead.crawler@outlook.com">indexlead.crawler@outlook.com</a> with your website address, company number or email address. Anyone named in our data can also ask to see it, correct it or have it deleted, and a request to stop all contact is kept on a list so it is never added again.</p>
+</body>
+</html>
